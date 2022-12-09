@@ -4,7 +4,16 @@ const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => res.type('html').send(html));
 
-app.get("/customJob", (req, res) => res.type('html').send("ok:customJob"));
+app.get("/customJob", (req, res) => {
+    //const msg = "unauthorized";
+    //res.status(401).send(msg);
+    //res.type('html').send("ok:customJob");
+    const data = req.body;
+    console.log(data);
+    res.status(200).send("OK");
+});
+        
+      
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
