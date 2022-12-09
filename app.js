@@ -10,7 +10,7 @@ app.post("/customJob", (req, res) => {
     //res.type('html').send("ok:customJob");
     const data = req.body;
     console.log(data);
-    res.status(200).send("OK");
+    res.status(200).send(data);
 });
         
       
