@@ -1,21 +1,26 @@
 const express = require("express");
+const bodyParser = require('body-parser')
+
 const app = express();
-const port = process.env.PORT || 3001;
 
-app.get("/", (req, res) => res.type('html').send(html));
+// create application/json parser
+var jsonParser = bodyParser.json()
+ 
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.post("/customJob", (req, res) => {
+app.post("/customJob", jsonParser, async (req, res) => {
+    const token = req.headers.token;
     //const msg = "unauthorized";
     //res.status(401).send(msg);
     //res.type('html').send("ok:customJob");
     const data = req.body;
-    console.log("req",req);
+    console.log("token",token);
     console.log("data",data);
     res.status(200).send(data);
 });
-        
-      
 
+const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 
@@ -67,5 +72,4 @@ const html = `
       Hello from Render!
     </section>
   </body>
-</html>
-`
+</html>`;
