@@ -4,7 +4,7 @@ const port = process.env.PORT || 3001;
 
 app.get("/", (req, res) => res.type('html').send(html));
 
-app.get("/customJob", (req, res) => {
+app.post("/customJob", (req, res) => {
     //const msg = "unauthorized";
     //res.status(401).send(msg);
     //res.type('html').send("ok:customJob");
